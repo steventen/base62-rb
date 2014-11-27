@@ -23,9 +23,10 @@ module Base62
 	def self.decode(str)
 		num = 0
 		i = 0
+		len = str.length - 1
 		# while loop is faster than each_char or other 'idiomatic' way
 		while i < str.length
-			pow = BASE ** (str.length - i -1)
+			pow = BASE ** (len - i)
 			num += KEYS_HASH[str[i]] * pow
 			i += 1
 		end
