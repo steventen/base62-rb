@@ -19,7 +19,7 @@ module Base62
 		return str
 	end
 
-	# Eecodes base62 string to a base10 (decimal) number.
+	# Decodes base62 string to a base10 (decimal) number.
 	def self.decode(str)
 		num = 0
 		i = 0
