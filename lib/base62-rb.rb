@@ -2,6 +2,7 @@ require "base62/version"
 
 module Base62
 	KEYS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	KEYS_HASH = KEYS.each_char.with_index.inject({}){ |h,(k,v)| h[k]=v; h }
 	BASE = KEYS.length
 
 	# Encodes base10 (decimal) number to base62 string.
@@ -25,7 +26,7 @@ module Base62
 		# while loop is faster than each_char or other 'idiomatic' way
 		while i < str.length
 			pow = BASE ** (str.length - i -1)
-			num += KEYS.index(str[i]) * pow
+			num += KEYS_HASH[str[i]] * pow
 			i += 1
 		end
 		return num
