@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Base62::VERSION
   spec.authors       = ["Steven Yue"]
   spec.email         = ["jincheker@gmail.com"]
-  spec.summary       = "Base62 encoding and decoding in Ruby"
+  spec.summary       = "Fast Base62 encoding and decoding in Ruby"
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/steventen/base62-rb"
   spec.license       = "MIT"
