@@ -13,7 +13,7 @@ time = Benchmark.measure do
     raise "Assertion error!" unless i == decode
   end
 end
-puts time # => 3.430000   0.010000   3.440000 (  3.454776)
+puts time # => 3.280000   0.010000   3.290000 (  3.311349))
 
 
 # gem radix62 v1.0.1
