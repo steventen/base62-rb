@@ -11,10 +11,11 @@ module Base62
 
 		str = ""
 		while num > 0
-			str = str + KEYS[num % BASE]
+			# prepend base62 charaters
+			str = KEYS[num % BASE] + str
 			num = num / (BASE)
 		end
-		return str.reverse
+		return str
 	end
 
 	# Eecodes base62 string to a base10 (decimal) number.
