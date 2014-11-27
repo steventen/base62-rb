@@ -3,7 +3,7 @@ require "benchmark"
 # Results tested on Macbook Air 1.4 GHz Intel Core i5, 8 GB 1600 MHz DDR3
 # Using Ruby 2.1.3p242
 
-# gem base62-rb v0.2.0
+# gem base62-rb v0.3.0
 require_relative '../lib/base62-rb.rb'
 
 time = Benchmark.measure do
