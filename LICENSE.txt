@@ -1,4 +1,4 @@
-Copyright (c) 2014 Steven Yue
+Copyright (c) 2016 Steven Yue
 
 MIT License
 

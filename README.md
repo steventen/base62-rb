@@ -1,6 +1,6 @@
 # Base62 in Ruby
 
-A simple and fast implementation of base62 in pure Ruby without too much sugar and magic. 
+A simple and fast implementation of base62 in pure Ruby without too much sugar and magic.
 
 It uses character set: `0-9`, `a-z`, `A-Z` for encoding and decoding.
 
@@ -41,4 +41,4 @@ See the comparison [here](benchmarks/comparison.rb)
 
 ## License
 
-MIT License - Copyright (c) 2014 Steven Yue
+MIT License - Copyright (c) 2016 Steven Yue
