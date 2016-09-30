@@ -15,7 +15,6 @@ time = Benchmark.measure do
 end
 puts time # => 3.280000   0.010000   3.290000 (  3.311349))
 
-
 # gem radix62 v1.0.1
 # https://github.com/matiaskorhonen/radix62
 require 'radix62'
@@ -27,7 +26,6 @@ time = Benchmark.measure do
   end
 end
 puts time # => 6.790000   0.020000   6.810000 (  6.842925)
-
 
 # gem base62 v1.0.0
 # https://github.com/jtzemp/base62

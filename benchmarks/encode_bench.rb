@@ -33,7 +33,6 @@ def encode1(num)
   return str.reverse
 end
 
-
 # Use String#prepend method
 def encode2(num)
   return "0" if num == 0
@@ -74,8 +73,6 @@ def encode4(num)
 end
 
 ### ==================
-
-
 
 ### Testing =====
 
