@@ -7,85 +7,85 @@ BASE = KEYS.length
 ### Decode Method Candidates =====
 
 # The one that is used in base62-rb library
-# Use 'while' loop, and define a variable i as the counter  
+# Use 'while' loop, and define a variable i as the counter
 def decode(str)
-	num = 0
-	i = 0
-	len = str.length - 1
-	while i < str.length
-		pow = BASE ** (len - i)
-		num += KEYS_HASH[str[i]] * pow
-		i += 1
-	end
-	return num
+  num = 0
+  i = 0
+  len = str.length - 1
+  while i < str.length
+    pow = BASE ** (len - i)
+    num += KEYS_HASH[str[i]] * pow
+    i += 1
+  end
+  return num
 end
 
-# Use KEYS.index to get the index 
+# Use KEYS.index to get the index
 # instead of using a predefined Hash Map(KEYS_HASH)
 def decode1(str)
-	num = 0
-	i = 0
-	while i < str.length
-		pow = BASE ** (str.length - i -1)
-		num += KEYS.index(str[i]) * pow
-		i += 1
-	end
-	return num
+  num = 0
+  i = 0
+  while i < str.length
+    pow = BASE ** (str.length - i -1)
+    num += KEYS.index(str[i]) * pow
+    i += 1
+  end
+  return num
 end
 
 # Use 'for...in...' loop
 def decode2(str)
-	num = 0
-	for i in 0...str.length
-		pow = BASE ** (str.length - i -1)
-		num += KEYS_HASH[str[i]] * pow
-	end
-	return num
+  num = 0
+  for i in 0...str.length
+    pow = BASE ** (str.length - i -1)
+    num += KEYS_HASH[str[i]] * pow
+  end
+  return num
 end
 
 # Use String#each_char, and #with_index
 # Use block to do the calcuation
 def decode3(str)
-	num = 0
-	str.each_char.with_index do |char, i|
-		pow = BASE ** (str.length - i -1)
-		num += KEYS.index(char) * pow
-	end
-	return num
+  num = 0
+  str.each_char.with_index do |char, i|
+    pow = BASE ** (str.length - i -1)
+    num += KEYS.index(char) * pow
+  end
+  return num
 end
 
 # Similar as above, but use KEYS_HASH to get the index
 def decode4(str)
-	num = 0
-	str.each_char.with_index do |char, i|
-		pow = BASE ** (str.length - i -1)
-		num += KEYS_HASH[char] * pow
-	end
-	return num
+  num = 0
+  str.each_char.with_index do |char, i|
+    pow = BASE ** (str.length - i -1)
+    num += KEYS_HASH[char] * pow
+  end
+  return num
 end
 
 # Similar as above, but explicitly define the counter
 # without using #with_index
 def decode5(str)
-	num = 0
-	i = 0
-	str.each_char do |char|
-		pow = BASE ** (str.length - i -1)
-		num += KEYS_HASH[char] * pow
-		i += 1
-	end
-	return num
+  num = 0
+  i = 0
+  str.each_char do |char|
+    pow = BASE ** (str.length - i -1)
+    num += KEYS_HASH[char] * pow
+    i += 1
+  end
+  return num
 end
 
 # same thing but with less variable
 def decode6(str)
-	num = 0
-	i = 0
-	while i < str.length
-		num += KEYS_HASH[str[i]] * (BASE ** (str.length - 1 - i))
-		i += 1
-	end
-	return num
+  num = 0
+  i = 0
+  while i < str.length
+    num += KEYS_HASH[str[i]] * (BASE ** (str.length - 1 - i))
+    i += 1
+  end
+  return num
 end
 
 ### ==================
@@ -98,45 +98,45 @@ tests = ["A", "Jr", "DFL", "2B5S", "8zTZmv", "1AnE6bpNA", "hjNv8tS3K"]
 
 Benchmark.ips do |x|
   x.report("decode") do
-  	tests.each do |test|
-  		decode(test)
-  	end
+    tests.each do |test|
+      decode(test)
+    end
   end
 
   x.report("decode1") do
-  	tests.each do |test|
-  		decode1(test)
-  	end
+    tests.each do |test|
+      decode1(test)
+    end
   end
 
-  x.report("decode2") do 
-  	tests.each do |test|
-  		decode2(test)
-  	end
+  x.report("decode2") do
+    tests.each do |test|
+      decode2(test)
+    end
   end
 
-  x.report("decode3") do 
-  	tests.each do |test|
-  		decode3(test)
-  	end
+  x.report("decode3") do
+    tests.each do |test|
+      decode3(test)
+    end
   end
 
-  x.report("decode4") do 
-  	tests.each do |test|
-  		decode4(test)
-  	end
+  x.report("decode4") do
+    tests.each do |test|
+      decode4(test)
+    end
   end
 
-  x.report("decode5") do 
-  	tests.each do |test|
-  		decode5(test)
-  	end
+  x.report("decode5") do
+    tests.each do |test|
+      decode5(test)
+    end
   end
 
-  x.report("decode6") do 
-  	tests.each do |test|
-  		decode6(test)
-  	end
+  x.report("decode6") do
+    tests.each do |test|
+      decode6(test)
+    end
   end
 end
 
