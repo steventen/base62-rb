@@ -1,5 +1,7 @@
 # Base62 in Ruby
 
+[![Build Status](https://travis-ci.org/steventen/base62-rb.svg?branch=master)](https://travis-ci.org/steventen/base62-rb)
+
 A simple and fast implementation of base62 in pure Ruby without too much sugar and magic.
 
 It uses character set: `0-9`, `a-z`, `A-Z` for encoding and decoding.
