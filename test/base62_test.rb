@@ -1,7 +1,6 @@
-require "base62-rb"
-require "test/unit"
+require 'test_helper'
 
-class Base62Test < Test::Unit::TestCase
+class Base62Test < Minitest::Test
   def test_encode
     {
       0 => "0",
